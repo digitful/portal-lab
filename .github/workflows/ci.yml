@@ -17,6 +17,6 @@ jobs:
           scope: '@digitful'
       - run: npm ci
       - run: npm run build ngx-ui
-      - run: cd dist/ngx-digitful && npm publish
+      - run: cd dist/ngx-ui && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
