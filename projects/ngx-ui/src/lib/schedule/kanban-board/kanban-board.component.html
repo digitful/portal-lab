@@ -1,0 +1,36 @@
+<div class="kanban-board" fxLayout="row" fxLayoutGap="10px" cdkDropListGroup>
+
+  <div class="col" fxFlex fxLayout="column">
+    <div class="col-title" fxLayoutAlign="center center"><span>Col 1</span></div>
+    <mat-divider></mat-divider>
+    <!---->
+    <div cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="tasks['Col 1']"
+         class="task-list" fxFlex fxLayout="column" fxLayoutGap="7px">
+      <div cdkDrag class="task" *ngFor="let task of tasks['Col 1']">{{task.label}}</div>
+    </div>
+    <!---->
+  </div>
+  <mat-divider vertical></mat-divider>
+  <div class="col" fxFlex fxLayout="column">
+    <div class="col-title" fxLayoutAlign="center center"><span>Col 2</span></div>
+    <mat-divider></mat-divider>
+    <!---->
+    <div cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="tasks['Col 2']"
+         class="task-list" fxFlex fxLayout="column" fxLayoutGap="7px">
+      <div cdkDrag class="task" *ngFor="let task of tasks['Col 2']">{{task.label}}</div>
+    </div>
+    <!---->
+  </div>
+  <mat-divider vertical></mat-divider>
+  <div class="col" fxFlex fxLayout="column">
+    <div class="col-title" fxLayoutAlign="center center"><span>Col 3</span></div>
+    <mat-divider></mat-divider>
+    <!---->
+    <div cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="tasks['Col 3']"
+         class="task-list" fxFlex fxLayout="column" fxLayoutGap="7px">
+      <div cdkDrag class="task" *ngFor="let task of tasks['Col 3']">{{task.label}}</div>
+    </div>
+    <!---->
+  </div>
+
+</div>

@@ -1,0 +1,127 @@
+<div class="weekly-schedule" fxLayout="column">
+  <div class="header" fxLayout="column">
+    <div fxFlex fxLayoutAlign="space-between end">
+      <div fxFlex="210px" fxLayoutAlign="center end">
+        <!-- Search resoucre -->
+        <mat-form-field fxFlex style="margin-left: 10px; margin-right: 10px;">
+          <mat-label>Search resource ...</mat-label>
+          <input matInput>
+        </mat-form-field>      
+      </div>
+      <div fxFlex fxLayout="row" fxLayoutAlign="center center">
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <mat-form-field appearance="outline" style="height: 60px;">
+          <mat-label>Semaine</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date">
+            <input matEndDate placeholder="End date">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+      </div>
+      <div fxFlex="210px">
+        <!-- Actions -->
+      </div>
+    </div>
+    <div fxFlex="30px" fxLayoutAlign="space-between end">
+      <div fxFlex="210px">
+        <!-- Filters -->
+      </div>
+      <mat-divider vertical></mat-divider>
+      <div fxFlex style="text-align: center;"><span>Lundi</span></div>
+      <mat-divider vertical></mat-divider>
+      <div fxFlex style="text-align: center;"><span>Mardi</span></div>
+      <mat-divider vertical></mat-divider>
+      <div fxFlex style="text-align: center;"><span>Mercredi</span></div>
+      <mat-divider vertical></mat-divider>
+      <div fxFlex style="text-align: center;"><span>Jeudi</span></div>
+      <mat-divider vertical></mat-divider>
+      <div fxFlex style="text-align: center;"><span>Venredi</span></div>
+      <mat-divider vertical></mat-divider>
+      <div fxFlex style="text-align: center;"><span>Samedi</span></div>
+      <mat-divider vertical></mat-divider>
+      <div fxFlex style="text-align: center;"><span>Dimanche</span></div>
+      <mat-divider vertical></mat-divider>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div fxFlex fxLayout="column" style="overflow: auto;" cdkDropListGroup>
+
+    <div fxLayout="column" *ngFor="let r of resources">
+      <div fxLayout="row">
+        <div fxFlex="210px">{{r.name}}</div>
+
+        <mat-divider vertical></mat-divider>
+        <div class="events" fxFlex fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px" cdkDropList [cdkDropListData]="r.schedules['Lundi']" (cdkDropListDropped)="drop($event)">
+          <button mat-button>+</button>
+          <digit-weekly-schedule-item cdkDrag
+            *ngFor="let event of r.schedules['Lundi']" 
+            [label]="event.label" [color]="event.color">
+          </digit-weekly-schedule-item>
+        </div>
+
+        <mat-divider vertical></mat-divider>
+        <div class="events" fxFlex fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px" cdkDropList [cdkDropListData]="r.schedules['Mardi']" (cdkDropListDropped)="drop($event)">
+          <button mat-button>+</button>
+          <digit-weekly-schedule-item cdkDrag
+            *ngFor="let event of r.schedules['Mardi']" 
+            [label]="event.label" [color]="event.color">
+          </digit-weekly-schedule-item>
+        </div>
+
+        <mat-divider vertical></mat-divider>
+        <div class="events" fxFlex fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px" cdkDropList [cdkDropListData]="r.schedules['Mercredi']" (cdkDropListDropped)="drop($event)">
+          <button mat-button>+</button>
+          <digit-weekly-schedule-item cdkDrag
+            *ngFor="let event of r.schedules['Mercredi']" 
+            [label]="event.label" [color]="event.color">
+          </digit-weekly-schedule-item>
+        </div>    
+
+        <mat-divider vertical></mat-divider>
+        <div class="events" fxFlex fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px" cdkDropList [cdkDropListData]="r.schedules['Jeudi']" (cdkDropListDropped)="drop($event)">
+          <button mat-button>+</button>
+          <digit-weekly-schedule-item cdkDrag
+            *ngFor="let event of r.schedules['Jeudi']" 
+            [label]="event.label" [color]="event.color">
+          </digit-weekly-schedule-item>
+        </div>
+
+        <mat-divider vertical></mat-divider>
+        <div class="events" fxFlex fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px" cdkDropList [cdkDropListData]="r.schedules['Vendredi']" (cdkDropListDropped)="drop($event)">
+          <button mat-button>+</button>
+          <digit-weekly-schedule-item cdkDrag
+            *ngFor="let event of r.schedules['Vendredi']" 
+            [label]="event.label" [color]="event.color">
+          </digit-weekly-schedule-item>
+        </div>
+
+        <mat-divider vertical></mat-divider>
+        <div class="events" fxFlex fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px" cdkDropList [cdkDropListData]="r.schedules['Samedi']" (cdkDropListDropped)="drop($event)">
+          <button mat-button>+</button>
+          <digit-weekly-schedule-item cdkDrag
+            *ngFor="let event of r.schedules['Samedi']" 
+            [label]="event.label" [color]="event.color">
+          </digit-weekly-schedule-item>
+        </div>
+
+        <mat-divider vertical></mat-divider>
+        <div class="events" fxFlex fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px" cdkDropList [cdkDropListData]="r.schedules['Dimanche']" (cdkDropListDropped)="drop($event)">
+          <button mat-button>+</button>
+          <digit-weekly-schedule-item cdkDrag
+            *ngFor="let event of r.schedules['Dimanche']" 
+            [label]="event.label" [color]="event.color">
+          </digit-weekly-schedule-item>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </div>
+
+  </div>
+</div>

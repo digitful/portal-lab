@@ -1,0 +1,9 @@
+<div class="ws-item-list" fxLayout="column" fxLayoutAlign="center" fxLayoutGap="10px" style="padding: 10px;">
+  <button mat-button>+</button>
+  <div fxFlex class="events" >
+    <digit-weekly-schedule-item cdkDrag
+      *ngFor="let event of events" 
+      [label]="event.label" [color]="event.color">
+    </digit-weekly-schedule-item>
+  </div>
+</div>

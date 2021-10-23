@@ -1,0 +1,53 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [mode]="'side'" 
+      [opened]="true"> <!--mod=over [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"-->
+    <div class="top-menu-bar" fxLayout="row" fxLayoutAlign="space-between center">
+      <button
+        type="button"
+        mat-icon-button
+        [color]="activeMenu==='setting' && 'primary'"
+        (click)="toggleMenu()">
+        <mat-icon aria-label="Side nav toggle icon">settings</mat-icon>
+      </button>
+      <button
+        type="button"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu_open</mat-icon>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let m of currentMenu" [routerLink]="m.path" routerLinkActive="active">{{m.label}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="toolbar" fxLayout="row" fxLayoutAlign="space-between center">
+      <div>
+        <button *ngIf="!drawer.opened"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </div>
+      <div>
+        <span>{{fullName}}</span>
+        <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="Example icon-button with a menu">
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #moreMenu="matMenu">
+          <button mat-menu-item (click)="logoutHandler()">
+            <mat-icon>logout</mat-icon>
+            <span>Se déconnecter</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

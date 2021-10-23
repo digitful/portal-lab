@@ -6,5 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'samples';
+
+  user = 'Abdellah Housni';
+
+  menu = {
+    main: [
+      { label: 'Tableau de board', path: 'dashboard' },
+      { label: 'Schedule', path: 'weekly-schedule' },
+      { label: 'Workers', path: 'worker' },
+      { label: 'Kanban', path: 'kanban-board' },
+      { label: 'Input', path: 'input' },
+    ],
+    setting: [
+      { label: 'Structure', path: 'structure' },
+      { label: 'Utilisateurs', path: 'user' }
+    ]
+  }
+
+  logout() {
+    console.log('logout')
+  }
+
 }

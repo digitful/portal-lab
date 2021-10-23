@@ -1,0 +1,32 @@
+.kanban-board {
+  height: 100%;
+  // width: 100%;
+
+  //background-color: aqua;
+}
+
+.col {
+  min-width: 200px;
+  // background-color: white;
+}
+
+.col-title {
+  // background-color: white;
+  height: 34px;
+  // background-color: brown;
+}
+
+.task-list {
+  padding: 7px;
+  height: calc(100% - 34px);
+  overflow: auto;
+  // background-color: yellow;
+}
+
+.task {
+  min-height: 100px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
